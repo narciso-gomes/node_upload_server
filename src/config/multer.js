@@ -33,7 +33,7 @@ module.exports = {
      * Config files limits
      */
     limits: {
-        fileSize: 2 * 1024 * 1024
+        fileSize: 50 * 1024 * 1024
     },
 
     /**
@@ -42,10 +42,30 @@ module.exports = {
 
     fileFilter: (req, file, cb) => {
         const allowedMimes = [
-            'image/jpeg',
-            'image/pjped',
-            'image/png',
-            'image/git'
+
+            /**
+             * Images filter
+             */
+
+            // 'image/jpeg',
+            // 'image/pjped',
+            // 'image/png',
+            // 'image/git'
+
+
+            /**
+             * PDF
+             */
+            'application/pdf',
+
+
+            /**
+             * Videos filter
+             */
+            'video/mp4',
+            'video/x-m4v',
+            'video/*'
+            
         ]
 
         if (allowedMimes.includes(file.mimetype)) {
